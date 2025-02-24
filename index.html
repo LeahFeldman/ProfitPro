@@ -21,7 +21,7 @@
                 </label>
                 
                 <label>Annual interest rate in %
-                    <input type="number" name="annual-int-rate" id="annual-int-rate"/>
+                    <input type="number" name="annual-int-rate" id="annual-int-rate" step=".01"/>
                 </label>
             
                 <label>Year of retirement
@@ -33,18 +33,19 @@
             <p id="calculated-interest-display"></p>
             <script>
                 function getCompoundInterest() { 
-                const initialAmount = parseFloat(document.getElementById('initial-investment').value); 
-                const annualInterestRate = parseFloat(document.getElementById("annual-int-rate").value);
-                const retirementYear = document.getElementById("retirement-year").value;
-                const now = new Date().getFullYear();
-                const years = retirementYear - now;
-                let futureValue = initialAmount*(1+(Math.pow(annualInterestRate/100, years)));
+                    const initialAmount = parseFloat(document.getElementById('initial-investment').value); 
+                    let annualInterestRate = parseFloat(document.getElementById("annual-int-rate").value);
+                    annualInterestRate = annualInterestRate/100;
+                    const retirementYear = document.getElementById("retirement-year").value;
+                    const now = new Date().getFullYear();
+                    const years = retirementYear - now;
+                    let futureValue = initialAmount*(Math.pow(1+annualInterestRate, years));
 
-                document.getElementById("calculated-interest-display").textContent = 
-                "Your investment will be worth $" + futureValue.toFixed(2) + " by the year "+ retirementYear+".";
+                    document.getElementById("calculated-interest-display").textContent = 
+                    "Your investment will be worth $" + futureValue.toFixed(2) + " by the year "+ retirementYear+".";
 
-                return false; 
-            }
+                    return false; 
+                }
             </script>
         </body>
     </html>

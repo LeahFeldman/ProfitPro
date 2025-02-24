@@ -15,5 +15,7 @@ input[type="submit"]{
     width: 500px;
 }
 #calculated-interest-display{
-    /* display: none; */
+    margin: 20px auto;
+    border: 2px rgb(185, 185, 245);
+    border-radius: 5px;
 }

@@ -2,13 +2,13 @@
     <html>
         <head>
             <title>ProfitPro</title>
-            <link rel="icon"type="image/x-icon" href="profitProLogo.svg">
+            <link rel="icon"type="image/x-icon" href="images/profitProLogo.svg">
             <link rel="stylesheet" href="simple-v1.css">
             <link rel="stylesheet" href="profitPro.css">
         </head>
         <body>
             <header>
-                <img class="logo" src="profitProLogo.svg"></img>
+                <img class="logo" src="images/profitProLogo.svg"></img>
                 <h1>ProfitPro</h1>
             </header>
             <p class="user-explanation">The ProfitPro investment calculator works by helping you see how much your money 
@@ -31,5 +31,21 @@
                 <input type="submit" name="submit" id="submit" value="Calculate"/>
             </form>
             <p id="calculated-interest-display"></p>
+            <script>
+                function getCompoundInterest() { 
+                const initialAmount = parseFloat(document.getElementById('initial-investment').value); 
+                const annualInterestRate = parseFloat(document.getElementById("annual-int-rate").value);
+                const retirementYear = document.getElementById("retirement-year").value;
+                const now = new Date().getFullYear();
+                const years = retirementYear - now;
+                let futureValue = initialAmount*(1+(Math.pow(annualInterestRate/100, years)));
+
+                document.getElementById("calculated-interest-display").textContent = 
+                "Your investment will be worth $" + futureValue.toFixed(2) + " by the year "+ retirementYear+".";
+                // document.getElementById("calculated-interest-display").style.display.replace("hidden", "block");
+            
+                return false; 
+            }
+            </script>
         </body>
     </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>ProfitPro</title>
+            <link rel="icon"type="image/x-icon" href="profitProLogo.svg">
+            <link rel="stylesheet" href="simple-v1.css">
+            <link rel="stylesheet" href="profitPro.css">
+        </head>
+        <body>
+            <header>
+                <img class="logo" src="profitProLogo.svg"></img>
+                <h1>ProfitPro</h1>
+            </header>
+            <p class="user-explanation">The ProfitPro investment calculator works by helping you see how much your money 
+                can grow over time based on your initial investment and expected rate of return. 
+                It gives you an estimate of your future wealth so you can make informed financial 
+                decisions.</p>
+            <form onsubmit="return getCompoundInterest()"> 
+                <label>Initial investment rate
+                    <input type="number" name="initial-investment" id="initial-investment"/>
+                </label>
+                
+                <label>Annual interest rate in %
+                    <input type="number" name="annual-int-rate" id="annual-int-rate"/>
+                </label>
+            
+                <label>Year of retirement
+                    <input type="number" name="retirement-year" id="retirement-year" size="4" min="2025" max="2125"/>
+                </label>
+                
+                <input type="submit" name="submit" id="submit" value="Calculate"/>
+            </form>
+            <p id="calculated-interest-display"></p>
+        </body>
+    </html>

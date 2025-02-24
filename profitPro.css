@@ -1,0 +1,19 @@
+img.logo{
+    width: 15%;
+}
+form{
+    text-align: center;
+    margin: 0 auto;
+}
+label, input{
+    display: block;
+    margin: 3px auto;
+}
+input[type="submit"]{
+    display: block;
+    margin: 10px auto;
+    width: 500px;
+}
+#calculated-interest-display{
+    /* display: none; */
+}
